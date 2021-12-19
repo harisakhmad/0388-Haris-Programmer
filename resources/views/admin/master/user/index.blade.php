@@ -2,10 +2,10 @@
 
 @section('pagetitle','Master User')
 
-@section('customcss')
+{{-- @section('customcss')
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/dataTables.bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/plugins/datatables/jquery.dataTables.min.css') }}">
-@endsection
+@endsection --}}
 
 @section('content')
 <!-- Default box -->
@@ -31,9 +31,9 @@
                             <td>{{$user->email}}</td>
                             <td>
                                 @if($user->is_peneliti==false)
-                                <span class="label label-primary">Pendana</span>
+                                <span class="label label-primary">user</span>
                                 @else
-                                <span class="label label-success">Periset </span>
+                                <span class="label label-success">admin </span>
                                 @endif
                             </td>
                         </tr>

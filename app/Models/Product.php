@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'products';
-    protected $guarded = 'id';
+    protected $table = 'research';
+    protected $guarded = ['id'];
 
+    public function latesImage(){
+        return $this->hasOne('App\Models\ImageProduct','product_id','id')->latest();
+    }
     public function fileRelation(){
-        $this->hasMany('App\Models\ImageProduct','product_id','id');
+        return $this->hasMany('App\Models\ImageProduct','product_id','id');
     }
 }

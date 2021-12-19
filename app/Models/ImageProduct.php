@@ -10,6 +10,6 @@ class ImageProduct extends Model
     protected $guarded=['id'];
 
     public function productRelation(){
-        $this->hasOne('App\Models\Product','id','product_id');
+        return $this->hasOne('App\Models\Product','id','product_id');
     }
 }

@@ -1,7 +1,7 @@
 //create.blade.php
 @extends('template.app')
 
-@section('pagetitle','Create Research')
+@section('pagetitle','Edit Research')
 
 @push('customcss')
     <!-- bootstrap wysihtml5 - text editor -->
@@ -20,21 +20,21 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="box box-success">
-            <form action="{{route('product.store')}}" method="post" class="form" enctype="multipart/form-data">
+            <form action="{{route('product.update',$product->id)}}" method="post" class="form" enctype="multipart/form-data">
                 <div class="box-body">
 
                     @csrf
-                    @method('POST')
+                    @method('PUT')
 
                     <div class="form-group">
                         <label for="">Judul <span class="label-required">*</span></label>
                         <input type="text" name="title" class="form-control input-sm" placeholder="Judul Produk..."
-                            required maxlength="60" value="{{ old('product') }}">
+                            required maxlength="60" value="{{ $product->title }}">
                     </div>
                     <div class="form-group">
                         <label for="">Nama Produk <span class="label-required">*</span></label>
                         <input type="text" name="final_product" class="form-control input-sm" placeholder="Nama Produk..."
-                            required maxlength="60" value="{{ old('product') }}">
+                            required maxlength="60" value="{{ $product->final_product }}">
                     </div>
 
                     {{-- <div class="form-group">
@@ -57,19 +57,19 @@
 
                     <div class="form-group">
                         <label for="">Summary</label>
-                        <textarea id="description" class="form-control" name="summary">{{ old('description') }}</textarea>
+                        <textarea id="description" class="form-control" name="summary">{{ $product->summary  }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Nama Peneliti <span class="label-required">*</span></label>
                         <input type="text" name="researcher" class="form-control input-sm" placeholder="Nama Nama Peneliti..."
-                            required maxlength="60" value="{{ old('product') }}">
+                            required maxlength="60" value="{{ $product->researcher }}">
                     </div>
                 </div> <!-- /.box-body -->
                 
 
                 <div class="box-footer">
                     <div class="pull-right">
-                        <button type="submit" class="btn btn-md btn-success"> <i class="fa fa-save"></i> Simpan</button>
+                        <button type="submit" class="btn btn-md btn-primary"> <i class="fa fa-save"></i> Update</button>
                     </div>
                 </div>
             </form>
